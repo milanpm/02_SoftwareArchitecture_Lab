@@ -17,13 +17,13 @@ The learning process focuses on explaining:
 
 ## Phase 1 — Architecture Foundations
 
-| Day | Topic | Practice |
-|---:|---|---|
-| 1 | Architecture Basics | Compare mixed and layered structures |
-| 2 | Single Responsibility Principle | Separate reasons for change |
-| 3 | Open/Closed Principle | Extend behavior without modification |
-| 4 | Liskov and Interface Segregation | Design safe, focused interfaces |
-| 5 | Dependency Inversion | Replace concrete dependencies |
+| Day | Topic | Practice | Status |
+|---:|---|---|:---:|
+| 1 | Architecture Basics | Compare mixed and layered structures | Completed |
+| 2 | Single Responsibility Principle | Separate reasons for change | Completed |
+| 3 | Open/Closed Principle | Extend behavior without modification | Next |
+| 4 | Liskov and Interface Segregation | Design safe, focused interfaces | Planned |
+| 5 | Dependency Inversion | Replace concrete dependencies | Planned |
 
 ## Phase 2 — Application Design
 

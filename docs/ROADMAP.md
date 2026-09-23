@@ -21,7 +21,7 @@ The learning process focuses on explaining:
 |---:|---|---|:---:|
 | 1 | Architecture Basics | Compare mixed and layered structures | Completed |
 | 2 | Single Responsibility Principle | Separate reasons for change | Completed |
-| 3 | Open/Closed Principle | Extend behavior without modification | Next |
+| 3 | Open/Closed Principle | Extend behavior without modification | In progress |
 | 4 | Liskov and Interface Segregation | Design safe, focused interfaces | Planned |
 | 5 | Dependency Inversion | Replace concrete dependencies | Planned |
 

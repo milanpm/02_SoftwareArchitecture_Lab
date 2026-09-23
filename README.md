@@ -21,7 +21,7 @@ Each topic compares structural problems with an improved design.
 |---:|---|:---:|
 | 1 | Architecture Basics and Separation of Concerns | Completed |
 | 2 | SOLID: Single Responsibility Principle | Completed |
-| 3 | SOLID: Open/Closed Principle | Next |
+| 3 | SOLID: Open/Closed Principle | In progress |
 
 ## Day 1 — Architecture Basics
 
@@ -153,6 +153,33 @@ SRP does not mean that every function needs its own class. Behaviors
 that change for the same reason may remain together. Behaviors with
 different reasons for change should be separated.
 
+## Day 3 — Open/Closed Principle
+
+Day 3 extends the center-alignment example with interchangeable decision
+rules. The evaluator calculates offsets and the Euclidean distance, then
+delegates PASS/FAIL to an `AlignmentRule`.
+
+| Rule | PASS condition |
+|---|---|
+| `CircularRule` | `hypot(offset_x, offset_y) <= tolerance` |
+| `PerAxisRule` | Both absolute offsets are at most `tolerance` |
+
+For offsets `(16, 16)` and tolerance `20`, the circular rule fails
+(distance `22.63`), while the per-axis rule passes. The example prints
+the rule name so the result is interpretable even when distance exceeds
+tolerance. A new rule implements the small `AlignmentRule` contract;
+the evaluator needs no new condition or modification.
+
+```bash
+python examples/03_Open_Closed_Principle/main.py
+python -m pytest
+```
+
+The Day 3 example is separate from Day 2, preserving its original
+behavior and tests. The composition code must still select a rule.
+This extension point is useful when alignment criteria vary by machine;
+it would add needless complexity if there were only one stable rule.
+
 ## Project Structure
 
 ```text
@@ -163,7 +190,7 @@ different reasons for change should be separated.
 │   ├── 01_Architecture_Basics/
 │   │   ├── bad_example.py
 │   │   └── good_example/
-│   └── 02_Single_Responsibility_Principle/
+│   ├── 02_Single_Responsibility_Principle/
 │       ├── bad_example.py
 │       └── good_example/
 │           ├── __init__.py
@@ -173,6 +200,10 @@ different reasons for change should be separated.
 │           ├── main.py
 │           ├── report_formatter.py
 │           └── result_repository.py
+│   └── 03_Open_Closed_Principle/
+│       ├── alignment_rules.py
+│       ├── ocp_inspection_evaluator.py
+│       └── main.py
 ├── tests/
 │   ├── test_json_patient_repository.py
 │   ├── test_patient.py

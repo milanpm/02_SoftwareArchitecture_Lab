@@ -184,7 +184,7 @@ it would add needless complexity if there were only one stable rule.
 ## Day 4 — Liskov Substitution Principle
 
 Day 4 checks whether different evaluation policies can replace one another
-without breaking the code that uses them. without breaking the code that uses them. For scores from 0 to 100,
+without breaking the code that uses them. For scores from 0 to 100,
 each policy returns either `PASS` or `FAIL`.
 
 | Policy | Passing score |

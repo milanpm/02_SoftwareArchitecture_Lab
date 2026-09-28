@@ -21,7 +21,8 @@ Each topic compares structural problems with an improved design.
 |---:|---|:---:|
 | 1 | Architecture Basics and Separation of Concerns | Completed |
 | 2 | SOLID: Single Responsibility Principle | Completed |
-| 3 | SOLID: Open/Closed Principle | In progress |
+| 3 | SOLID: Open/Closed Principle | Completed |
+| 4 | SOLID: Liskov Substitution Principle | Completed |
 
 ## Day 1 — Architecture Basics
 
@@ -180,6 +181,34 @@ behavior and tests. The composition code must still select a rule.
 This extension point is useful when alignment criteria vary by machine;
 it would add needless complexity if there were only one stable rule.
 
+## Day 4 — Liskov Substitution Principle
+
+Day 4 checks whether different evaluation policies can replace one another
+without breaking the code that uses them. without breaking the code that uses them. For scores from 0 to 100,
+each policy returns either `PASS` or `FAIL`.
+
+| Policy | Passing score |
+|---|---:|
+| `BasicPolicy` | 60 or above |
+| `StrictPolicy` | 80 or above |
+| `SpecialPolicy` | 95 or above |
+
+An earlier `SpecialPolicy` returned `EXCELLENT` or `NORMAL`. The calling
+code expected `PASS` or `FAIL`, so it could not handle that policy as a
+replacement. The corrected policy keeps its 95-point passing rule while
+following the shared return value contract.
+
+The example checks several scores for all three policies and verifies
+the 94/95 boundary for `SpecialPolicy`.
+
+```bash
+python examples/04_Liskov_Substitution_Principle/day4_lsp.py
+```
+
+These checks cover the selected scores and return values. Input validation
+and exception behavior would need separate checks if they become part of
+the policy contract.
+
 ## Project Structure
 
 ```text
@@ -200,10 +229,12 @@ it would add needless complexity if there were only one stable rule.
 │           ├── main.py
 │           ├── report_formatter.py
 │           └── result_repository.py
-│   └── 03_Open_Closed_Principle/
-│       ├── alignment_rules.py
-│       ├── ocp_inspection_evaluator.py
-│       └── main.py
+│   ├── 03_Open_Closed_Principle/
+│   │   ├── alignment_rules.py
+│   │   ├── ocp_inspection_evaluator.py
+│   │   └── main.py
+│   └── 04_Liskov_Substitution_Principle/
+│       └── day4_lsp.py
 ├── tests/
 │   ├── test_json_patient_repository.py
 │   ├── test_patient.py
